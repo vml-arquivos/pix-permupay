@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  <!-- SEO & WhatsApp Preview (Open Graph) -->
+  <title>Pagamento Pix – PERMUPAY LTDA</title>
+  <meta name="description" content="Checkout seguro para pagamento via Pix da PERMUPAY LTDA." />
+  
+  <!-- Open Graph / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pix.permupay.com.br/" />
+  <meta property="og:title" content="💳 Pagamento Pix: PERMUPAY LTDA" />
+  <meta property="og:description" content="Acesse o checkout seguro. Copie a chave Pix ou escaneie o QR Code." />
+  <meta property="og:image" content="https://pix.permupay.com.br/og-image.png" />
+
+  <link rel="icon" type="image/png" href="https://pix.permupay.com.br/qrcode_pix.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0f1e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0, 102, 255, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 90%, rgba(0, 200, 180, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Idêntico ao Anexo */
+    .header {
+      background: linear-gradient(135deg, #0052cc 0%, #0066ff 40%, #00c8b4 100%);
+      padding: 15px 20px 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-area { display: flex; align-items: center; gap: 8px; }
+
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 900; color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .company-name { font-size: 14px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; line-height: 1.1; }
+    .company-sub { font-size: 9px; color: rgba(255,255,255,0.7); text-transform: uppercase; margin-top: 1px; }
+
+    .badge-pix {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 3px 8px;
+      display: flex; align-items: center; gap: 4px;
+      font-size: 9px; font-weight: 700; color: #fff;
+    }
+
+    .badge-dot {
+      width: 5px; height: 5px; background: #00ffcc; border-radius: 50%;
+      box-shadow: 0 0 8px #00ffcc; animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.85); } }
+
+    .header-title h1 { font-size: 18px; font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 2px; }
+    .header-title p { font-size: 10px; color: rgba(255,255,255,0.75); }
+
+    /* Body Compactado */
+    .body { padding: 12px 20px 12px; }
+
+    .qr-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; }
+    .qr-label { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 1px; }
+
+    .qr-wrapper {
+      position: relative; padding: 8px; background: #ffffff; border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .qr-wrapper img { display: block; width: 130px; height: 130px; border-radius: 4px; }
+
+    .qr-hint { margin-top: 5px; font-size: 9px; color: rgba(255,255,255,0.5); }
+
+    .divider-label { font-size: 9px; color: rgba(255,255,255,0.3); text-transform: uppercase; margin: 8px 0; text-align: center; letter-spacing: 1px; }
+
+    /* Chave Pix Compacta */
+    .key-info {
+      background: rgba(0,102,255,0.08);
+      border: 1px solid rgba(0,102,255,0.2);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .key-icon {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, #0052cc, #0066ff);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; flex-shrink: 0;
+    }
+
+    .key-title { font-size: 8px; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+    .key-value { font-size: 12px; font-weight: 700; color: #ffffff; }
+
+    /* Pix Copia e Cola Compacto */
+    .copy-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 10px;
+      padding: 8px 10px;
+      display: flex; align-items: center; gap: 8px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .copy-code { flex: 1; font-size: 8px; font-family: monospace; color: rgba(255,255,255,0.5); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .copy-btn {
+      background: linear-gradient(135deg, #0052cc, #0066ff);
+      border: none; border-radius: 6px;
+      padding: 6px 10px; font-size: 10px; font-weight: 700; color: #fff;
+      white-space: nowrap;
+    }
+
+    /* Como Pagar / Passo a Passo Compacto */
+    .instructions {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    .instructions-title { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+
+    .step { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .step:last-child { margin-bottom: 0; }
+    .step-num { width: 16px; height: 16px; background: #0066ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800; flex-shrink: 0; }
+    .step-text { font-size: 10px; color: rgba(255,255,255,0.6); line-height: 1.2; }
+
+    /* Footer Fiel */
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 10px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .footer-logo { font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.4); }
+    .footer-secure { font-size: 9px; color: rgba(255,255,255,0.3); display: flex; align-items: center; gap: 4px; }
+    .secure-dot { width: 5px; height: 5px; background: #00e5a0; border-radius: 50%; }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%) translateY(100px);
+      background: #00ffcc; color: #0a0f1e; padding: 6px 16px; border-radius: 50px;
+      font-size: 10px; font-weight: 800; transition: transform 0.3s; z-index: 9999;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* Ajustes Mobile Extremos */
+    @media (max-height: 660px) {
+      .header { padding: 10px 20px 8px; }
+      .qr-wrapper img { width: 110px; height: 110px; }
+      .body { padding: 8px 18px 10px; }
+      .header-title h1 { font-size: 16px; }
+      .action-box { padding: 10px; }
+      .instructions { padding: 8px 10px; }
+      .step-text { font-size: 9px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="header">
+      <div class="header-top">
+        <div class="logo-area">
+          <div class="logo-icon">PP</div>
+          <div class="logo-text">
+            <span class="company-name">PERMUPAY</span>
+            <span class="company-sub">LTDA · Pagamentos</span>
+          </div>
+        </div>
+        <div class="badge-pix"><span class="badge-dot"></span>PIX</div>
+      </div>
+      <div class="header-title">
+        <h1>Cobrança via Pix</h1>
+        <p>Pagamento instantâneo · 100% seguro</p>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="qr-section">
+        <div class="qr-label">Escaneie o QR Code</div>
+        <div class="qr-wrapper">
+          <img src="https://pix.permupay.com.br/qrcode_pix.png" alt="QR Code Pix">
+        </div>
+        <p class="qr-hint">Abra seu banco → Pix → Ler QR Code</p>
+      </div>
+
+      <div class="divider-label">Ou use o código abaixo</div>
+
+      <div class="key-info">
+        <div class="key-icon">🏦</div>
+        <div>
+          <div class="key-title">Chave Pix CNPJ</div>
+          <div class="key-value">61.281.938/0001-11</div>
+        </div>
+      </div>
+
+      <div class="copy-box" onclick="copiarPix()">
+        <span class="copy-code" id="pixCode">00020126360014BR.GOV.BCB.PIX0114612819380001115204000053039865802BR5913PERMUPAY LTDA6008BRASILIA62070503***630427BB</span>
+        <button class="copy-btn">📋 COPIAR</button>
+      </div>
+
+      <div class="instructions">
+        <div class="instructions-title">📱 Como Pagar</div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Abra o app do seu banco e acesse o Pix</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">Escolha Ler QR Code ou Pix Copia e Cola</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Confira os dados e confirme o pagamento</div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <span class="footer-logo">PERMUPAY</span>
+        <span class="footer-secure"><span class="secure-dot"></span>Pagamento seguro</span>
+      </footer>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">✅ CÓDIGO PIX COPIADO!</div>
+
+  <script>
+    function copiarPix() {
+      const code = document.getElementById('pixCode').innerText;
+      const toast = document.getElementById('toast');
+      navigator.clipboard.writeText(code).then(() => {
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }).catch(() => {
+        const el = document.createElement('textarea');
+        el.value = code;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    }
+  </script>
+</body>
+</html>
