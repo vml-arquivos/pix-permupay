@@ -49,7 +49,7 @@
       width: 100%;
       max-width: 440px;
       height: 100vh;
-      max-height: 800px; /* Reduzido levemente para garantir enquadramento em telas menores */
+      max-height: 800px;
       background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
@@ -153,29 +153,31 @@
     .key-value { font-size: 11px; font-weight: 700; color: #ffffff; }
     .key-title { font-size: 8px; color: rgba(255,255,255,0.45); text-transform: uppercase; }
 
-    /* Botão de Copiar Refinado com Dupla Ação */
+    /* Botão de Copiar Refinado com Aumento de 30% e Justificação à Esquerda */
     .copy-box {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 12px;
-      padding: 10px 14px;
-      display: flex; align-items: center; gap: 12px;
+      padding: 8px 12px;
+      display: flex; align-items: center; gap: 10px;
       cursor: pointer;
       margin-bottom: 8px;
       transition: all 0.2s ease;
+      justify-content: space-between; /* Garante que o código fique à esquerda e o botão à direita */
     }
     
     .copy-box:active { background: rgba(255, 255, 255, 0.08); }
 
-    .copy-code { flex: 1; font-size: 8px; font-family: monospace; color: rgba(255,255,255,0.4); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .copy-code { flex: 1; font-size: 7px; font-family: monospace; color: rgba(255,255,255,0.3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; margin-right: 5px; }
 
     .copy-btn {
       background: linear-gradient(135deg, #0052cc, #0066ff);
       border: none; border-radius: 8px;
-      padding: 10px 18px; font-size: 12px; font-weight: 800; color: #fff;
+      padding: 12px 22px; font-size: 14px; font-weight: 900; color: #fff;
       white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(0,102,255,0.3);
+      box-shadow: 0 4px 12px rgba(0,102,255,0.4);
       text-transform: uppercase;
+      flex-shrink: 0;
     }
 
     /* Passo a Passo Compacto */
