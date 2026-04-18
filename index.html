@@ -29,7 +29,7 @@
       align-items: center;
       justify-content: center;
       padding: 10px;
-      overflow: hidden;
+      overflow: hidden; /* Força uma única dobra */
     }
 
     body::before {
@@ -52,15 +52,15 @@
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 24px;
+      border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 32px 80px rgba(0,0,0,0.6);
     }
 
-    /* Header Original Restaurado */
+    /* Header Fiel à Imagem */
     .header {
       background: linear-gradient(135deg, #0052cc 0%, #0066ff 40%, #00c8b4 100%);
-      padding: 20px 24px 18px;
+      padding: 24px 28px 20px;
       position: relative;
       overflow: hidden;
     }
@@ -69,32 +69,32 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
       position: relative;
       z-index: 2;
     }
 
-    .logo-area { display: flex; align-items: center; gap: 10px; }
+    .logo-area { display: flex; align-items: center; gap: 12px; }
 
     .logo-icon {
-      width: 40px; height: 40px;
+      width: 44px; height: 44px;
       background: rgba(255,255,255,0.18);
-      border-radius: 12px;
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px; font-weight: 900; color: #fff;
+      font-size: 20px; font-weight: 900; color: #fff;
       border: 1px solid rgba(255,255,255,0.25);
     }
 
-    .company-name { font-size: 15px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; }
-    .company-sub { font-size: 10px; color: rgba(255,255,255,0.7); text-transform: uppercase; margin-top: 1px; }
+    .company-name { font-size: 16px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; line-height: 1.1; }
+    .company-sub { font-size: 10px; color: rgba(255,255,255,0.7); text-transform: uppercase; margin-top: 2px; }
 
     .badge-pix {
       background: rgba(255,255,255,0.15);
       border: 1px solid rgba(255,255,255,0.3);
       border-radius: 20px;
-      padding: 4px 10px;
-      display: flex; align-items: center; gap: 5px;
-      font-size: 10px; font-weight: 700; color: #fff;
+      padding: 5px 12px;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; color: #fff;
     }
 
     .badge-dot {
@@ -104,85 +104,90 @@
 
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.85); } }
 
-    .header-title h1 { font-size: 20px; font-weight: 900; color: #fff; line-height: 1.2; }
-    .header-title p { font-size: 11px; color: rgba(255,255,255,0.75); }
+    .header-title h1 { font-size: 24px; font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 4px; }
+    .header-title p { font-size: 12px; color: rgba(255,255,255,0.75); }
 
-    /* Body Compactado */
-    .body { padding: 18px 24px 20px; }
+    /* Body Compactado para uma dobra */
+    .body { padding: 20px 28px 24px; }
 
-    .qr-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 18px; }
-    .qr-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
+    .qr-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
+    .qr-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1.5px; }
 
     .qr-wrapper {
-      position: relative; padding: 12px; background: #ffffff; border-radius: 18px;
+      position: relative; padding: 14px; background: #ffffff; border-radius: 20px;
       box-shadow: 0 16px 40px rgba(0,0,0,0.4);
     }
 
-    .qr-wrapper img { display: block; width: 160px; height: 160px; border-radius: 4px; }
+    .qr-wrapper img { display: block; width: 170px; height: 170px; border-radius: 6px; }
 
-    /* Chave e Copia e Cola */
-    .key-info {
-      background: rgba(0,102,255,0.08);
+    .qr-hint { margin-top: 10px; font-size: 11px; color: rgba(255,255,255,0.5); }
+
+    /* Seção de Chave e Copia e Cola Compacta */
+    .action-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 15px;
+    }
+
+    .key-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .key-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #0052cc, #0066ff);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .key-title { font-size: 9px; color: rgba(255,255,255,0.45); text-transform: uppercase; margin-bottom: 2px; }
+    .key-value { font-size: 14px; font-weight: 700; color: #ffffff; }
+
+    .copy-box {
+      background: rgba(0,102,255,0.1);
       border: 1px solid rgba(0,102,255,0.2);
       border-radius: 12px;
       padding: 10px 14px;
-      margin-bottom: 14px;
       display: flex; align-items: center; gap: 12px;
-    }
-
-    .key-icon {
-      width: 32px; height: 32px;
-      background: linear-gradient(135deg, #0052cc, #0066ff);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; flex-shrink: 0;
-    }
-
-    .key-value { font-size: 13px; font-weight: 700; color: #ffffff; }
-    .key-title { font-size: 9px; color: rgba(255,255,255,0.45); text-transform: uppercase; }
-
-    .copy-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 12px;
-      padding: 10px 12px;
-      display: flex; align-items: center; gap: 10px;
       cursor: pointer;
+      transition: background 0.2s;
     }
+    .copy-box:hover { background: rgba(0,102,255,0.15); }
 
-    .copy-code { flex: 1; font-size: 9px; font-family: monospace; color: rgba(255,255,255,0.6); word-break: break-all; }
-
+    .copy-text { flex: 1; font-size: 10px; font-family: monospace; color: rgba(255,255,255,0.7); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .copy-btn {
       background: linear-gradient(135deg, #0052cc, #0066ff);
       border: none; border-radius: 8px;
-      padding: 8px 12px; font-size: 11px; font-weight: 700; color: #fff;
+      padding: 8px 14px; font-size: 11px; font-weight: 700; color: #fff;
       white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0,102,255,0.3);
     }
 
-    /* Footer Minimalista */
+    /* Footer Fiel */
     .footer {
       border-top: 1px solid rgba(255,255,255,0.07);
-      padding-top: 14px;
+      padding-top: 18px;
       display: flex; align-items: center; justify-content: space-between;
     }
 
-    .footer-logo { font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.4); }
-    .footer-secure { font-size: 9px; color: rgba(255,255,255,0.3); display: flex; align-items: center; gap: 4px; }
-    .secure-dot { width: 5px; height: 5px; background: #00e5a0; border-radius: 50%; }
+    .footer-logo { font-size: 12px; font-weight: 800; color: rgba(255,255,255,0.5); }
+    .footer-secure { font-size: 10px; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 5px; }
+    .secure-dot { width: 6px; height: 6px; background: #00e5a0; border-radius: 50%; box-shadow: 0 0 6px #00e5a0; }
 
     /* Toast */
     .toast {
       position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
-      background: #00ffcc; color: #0a0f1e; padding: 8px 20px; border-radius: 50px;
-      font-size: 11px; font-weight: 800; transition: transform 0.3s; z-index: 9999;
+      background: #00ffcc; color: #0a0f1e; padding: 10px 24px; border-radius: 50px;
+      font-size: 12px; font-weight: 800; transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28); z-index: 9999;
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
 
-    /* Media Query para telas muito pequenas */
-    @media (max-height: 600px) {
-      .header { padding: 12px 20px 10px; }
-      .qr-wrapper img { width: 140px; height: 140px; }
-      .body { padding: 12px 20px 14px; }
+    /* Media Queries para ajuste fino de uma dobra */
+    @media (max-height: 700px) {
+      .header { padding: 16px 24px 14px; }
+      .qr-wrapper img { width: 150px; height: 150px; }
+      .body { padding: 14px 24px 18px; }
+      .header-title h1 { font-size: 20px; }
+      .action-box { padding: 12px; margin-bottom: 10px; }
     }
   </style>
 </head>
@@ -212,25 +217,28 @@
         <div class="qr-wrapper">
           <img src="https://pix.permupay.com.br/qrcode_pix.png" alt="QR Code Pix">
         </div>
+        <p class="qr-hint">Abra seu banco → Pix → Ler QR Code</p>
       </div>
 
-      <div class="key-info">
-        <div class="key-icon">🏦</div>
-        <div class="key-details">
-          <div class="key-title">Chave Pix CNPJ</div>
-          <div class="key-value">61.281.938/0001-11</div>
+      <div class="action-box">
+        <div class="key-row">
+          <div class="key-icon">🏦</div>
+          <div>
+            <div class="key-title">Chave Pix CNPJ</div>
+            <div class="key-value">61.281.938/0001-11</div>
+          </div>
+        </div>
+
+        <div class="copy-box" onclick="copiarPix()">
+          <span class="copy-text" id="pixCode">00020126360014BR.GOV.BCB.PIX0114612819380001115204000053039865802BR5913PERMUPAY LTDA6008BRASILIA62070503***630427BB</span>
+          <button class="copy-btn">📋 COPIAR</button>
         </div>
       </div>
 
-      <div class="copy-box" onclick="copiarPix()">
-        <span class="copy-code" id="pixCode">00020126360014BR.GOV.BCB.PIX0114612819380001115204000053039865802BR5913PERMUPAY LTDA6008BRASILIA62070503***630427BB</span>
-        <button class="copy-btn">📋 COPIAR</button>
-      </div>
-
-      <div class="footer" style="margin-top: 15px;">
+      <footer class="footer">
         <span class="footer-logo">PERMUPAY</span>
         <span class="footer-secure"><span class="secure-dot"></span>Pagamento seguro</span>
-      </div>
+      </footer>
     </div>
   </div>
 
